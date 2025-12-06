@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Event Intelligence (SEI)</title>
+    <meta name="description" content="Social Event Intelligence driven by Large-Small AI Model Integration: From the AI Social Science Perspective">
+    
+    <!-- Google Fonts: Inter for UI, Merriweather for text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #2563eb; /* Academic Blue */
+            --secondary-color: #1e293b; /* Slate Dark */
+            --accent-color: #f97316; /* Orange for Highlights */
+            --bg-color: #ffffff;
+            --bg-alt: #f8fafc;
+            --text-main: #334155;
+            --text-heading: #0f172a;
+            --max-width: 960px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-heading);
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .bg-alt {
+            background-color: var(--bg-alt);
+        }
+
+        /* Header / Hero */
+        header {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        h1.title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(120deg, var(--secondary-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .authors {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .affiliations {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        /* Action Buttons */
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #cbd5e1;
+            color: var(--text-heading);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-heading);
+            background-color: white;
+        }
+
+        /* Abstract */
+        .abstract-content {
+            font-size: 1.05rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Architecture Image */
+        .teaser-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 30px 0 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 10px;
+        }
+
+        /* Three Pillars Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        /* Demo Section */
+        .demo-block {
+            margin-bottom: 50px;
+        }
+
+        .demo-video {
+            width: 100%;
+            border-radius: 8px;
+            background: #000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Citation */
+        .bibtex {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1.title { font-size: 1.8rem; }
+            .links { flex-direction: column; align-items: stretch; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="container">
+        <h1 class="title">Social Event Intelligence (SEI)<br>driven by Large-Small AI Model Integration</h1>
+        
+        <div class="authors">
+            <strong>Author Name 1</strong><sup>1</sup>, 
+            <strong>Author Name 2</strong><sup>1,2</sup>, 
+            <strong>Author Name 3</strong><sup>2</sup>
+        </div>
+        
+        <div class="affiliations">
+            <sup>1</sup> Institution Name One, Country<br>
+            <sup>2</sup> Institution Name Two, Country
+        </div>
+
+        <div class="links">
+            <a href="#" class="btn"><i class="fas fa-file-pdf"></i> Paper (PDF)</a>
+            <a href="#" class="btn btn-outline"><i class="fas fa-archive"></i> arXiv</a>
+            <a href="#" class="btn btn-outline"><i class="fab fa-github"></i> Code & Data</a>
+            <a href="#demos" class="btn btn-outline"><i class="fas fa-play-circle"></i> View Demos</a>
+        </div>
+    </header>
+
+    <!-- Abstract -->
+    <section class="section bg-alt">
+        <div class="container">
+            <h2>Abstract</h2>
+            <div class="abstract-content">
+                <p>
+                    Social Event Intelligence (SEI) is a novel theoretical framework and technical paradigm designed to analyze social events by moving beyond static, single-domain snapshots. 
+                    Reconstructing social events as dynamic, multi-dimensional processes, SEI is grounded in the philosophical realities of <b>dynamic evolution</b> and <b>cognitive complexity</b>.
+                </p>
+                <p>
+                    The framework introduces a comprehensive architecture comprising: 
+                    (1) The <b>Event Lifecycle</b>, which tracks causal chains from initial occurrence to historical restrike; 
+                    (2) <b>Three-Domain Convergence</b>, which reconstructs the holistic "body" of an event across physical actions, information flows, and cognitive shifts; and 
+                    (3) The <b>Large-Small Model Integration Paradigm</b>, which serves as the cognitive engine. 
+                    By embedding critical social science theories into AI architectures, SEI transforms AI from a passive tool into a sociologically reflexive collaborator capable of navigating complex social dynamics and mitigating bias.
+                </p>
+            </div>
+            
+            <!-- Replace 'framework.png' with your actual image file -->
+            <img src="framework.png" alt="SEI Framework Architecture" class="teaser-image">
+            <p class="caption">
+                Fig 1. The Overall Architecture of Social Event Intelligence (SEI), illustrating the synergy between the Event Lifecycle, Three-Domain Convergence, and Large-Small Model Integration.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Methodology -->
+    <section class="section">
+        <div class="container">
+            <h2>Core Methodology</h2>
+            <p>
+                SEI addresses the limitations of traditional crisis informatics through three interconnected pillars, ensuring a sociologically grounded analysis.
+            </p>
+            
+            <div class="grid-3">
+                <!-- Pillar 1 -->
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-clock-rotate-left"></i></div>
+                    <h3>Dynamic Lifecycle</h3>
+                    <p>
+                        Instead of treating events as static data points, we map the event trajectory through five stages: <b>Occurrence, Development, Climax, Decline, and Restrike</b>. This allows AI to capture the "process of becoming" and forecast recursive evolutionary patterns.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Three-Domain Convergence</h3>
+                    <p>
+                        We break down data silos by integrating:
+                        <br>• <b>Physical Domain:</b> Real-world actions & entities.
+                        <br>• <b>Information Domain:</b> Digital diffusion & media.
+                        <br>• <b>Cognition Domain:</b> Public sentiment & belief.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Model Integration</h3>
+                    <p>
+                        A novel <b>Large-Small Model Paradigm</b> serves as the engine. Large Models (Cognitive Engine) handle semantic reasoning, while Small Models (Perceptual Terminals) handle real-time precision. Integration modes include Linear, Parallel, and Circular flows.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies / Demos -->
+    <section class="section bg-alt" id="demos">
+        <div class="container">
+            <h2>Case Studies & Demos</h2>
+            
+            <!-- Case 1 -->
+            <div class="demo-block">
+                <h3>1. Behavioral Prediction: French Protests</h3>
+                <p>
+                    Validating the <b>Linear Flow (Agency)</b>. We utilized Small Models to capture "muted voices" from niche platforms (e.g., TikTok) to correct the elite-centric bias of Large Models. This approach successfully predicted the transition from online complaints to the "White March" offline protests.
+                </p>
+                <!-- Video Placeholder: Replace src with your video file -->
+                <video class="demo-video" controls poster="demo1-poster.jpg">
+                    <source src="demo1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="caption">Demo 1: Visualization of the prediction trajectory during the French Protests analysis.</p>
+            </div>
+
+            <!-- Case 2 -->
+            <div class="demo-block">
+                <h3>2. Bias Detection: LK-99 Superconductor</h3>
+                <p>
+                    Validating the <b>Parallel Flow (Cooperation)</b>. Small Models constructed a factual vector library, while Large Models analyzed narrative framing. The system quantified the "cognitive gap" between scientific facts and media sensationalism.
+                </p>
+                <!-- Video Placeholder -->
+                <video class="demo-video" controls poster="demo2-poster.jpg">
+                    <source src="demo2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="caption">Demo 2: Heatmap showing the divergence between scientific papers and media reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation -->
+    <section class="section">
+        <div class="container">
+            <h2>Citation</h2>
+            <p>If you find this work useful for your research, please consider citing our paper:</p>
+            <div class="bibtex">
+@article{sei2025,
+  title={Social Event Intelligence driven by Large-Small AI Model Integration},
+  author={Author One and Author Two and Author Three},
+  journal={Journal Name / arXiv preprint},
+  year={2025}
+}</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2025 SEI Project Team. <br>
+                Website template designed for academic research.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
